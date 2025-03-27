@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: nginx2  # <-- Your certificate name
+  namespace: nginx2  # <-- Your namespace
+spec:
+  secretName: nginx2  # <-- This secret will store the issued certificate and private key
+  issuerRef:
+    name: cloudflare-clusterissuer  # <-- The name of the ClusterIssuer you created
+    kind: ClusterIssuer
+  dnsNames:
+    - app.ronitbanerjee.com  # <-- Your domain name
